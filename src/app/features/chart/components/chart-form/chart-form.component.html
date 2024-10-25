@@ -1,0 +1,6 @@
+<form class="tui-space_left-6">
+  <tui-select tuiTextfieldSize="s" [formControl]="chartType" class="select">
+    <input placeholder="Choose chart type" tuiTextfieldLegacy />
+    <tui-data-list-wrapper *tuiDataList [items]="chartTypes" />
+  </tui-select>
+</form>

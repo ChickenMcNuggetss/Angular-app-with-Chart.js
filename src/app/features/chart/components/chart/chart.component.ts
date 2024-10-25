@@ -1,16 +1,14 @@
-import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TuiDataList, TuiLoader } from '@taiga-ui/core';
-import { TuiDataListWrapper } from '@taiga-ui/kit';
+import { TuiLoader } from '@taiga-ui/core';
 import { ChartData, ChartOptions, ChartTypeRegistry } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import { TuiSelectModule, TuiTextfieldControllerModule } from '@taiga-ui/legacy';
 import { ChartService } from '@features/chart/services/chart/chart.service';
 import { ChartApiService } from '@features/chart/services/chart-api/chart-api.service';
 import { tap } from 'rxjs';
-import { ChartType } from '@features/chart/enums/chart-types';
 import { SourceComponent } from '../source/source.component';
+import { ChartFormComponent } from '../chart-form/chart-form.component';
+import { defaultChartType } from '@features/chart/enums/chart-types';
 
 const BORDER_COLOR = 'rgba(75,192,192,1)';
 const BACKGROUND_COLOR = 'rgba(75,192,192,0.2)';
@@ -18,16 +16,7 @@ const BACKGROUND_COLOR = 'rgba(75,192,192,0.2)';
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [
-    BaseChartDirective,
-    ReactiveFormsModule,
-    TuiDataList,
-    TuiDataListWrapper,
-    TuiTextfieldControllerModule,
-    TuiSelectModule,
-    TuiLoader,
-    SourceComponent,
-  ],
+  imports: [BaseChartDirective, TuiLoader, SourceComponent, ChartFormComponent],
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,8 +27,7 @@ export class ChartComponent implements OnInit {
   private destroy = inject(DestroyRef);
   public population = this.chartService.population;
   public source = this.chartService.source;
-  protected chartType = new FormControl<keyof ChartTypeRegistry>(ChartType.Line, { nonNullable: true });
-  protected chartTypes: (keyof ChartTypeRegistry)[] = [ChartType.Line, ChartType.Bar, ChartType.Scatter];
+  public chartType = signal<keyof ChartTypeRegistry>(defaultChartType);
 
   public lineChartData = computed<ChartData<keyof ChartTypeRegistry, number[], string>>(() => {
     return {
@@ -67,10 +55,6 @@ export class ChartComponent implements OnInit {
     },
   };
 
-  protected get chartTypeValue() {
-    return this.chartType.value;
-  }
-
   public ngOnInit() {
     this.chartApiService
       .getPopulationData()
@@ -81,5 +65,9 @@ export class ChartComponent implements OnInit {
         takeUntilDestroyed(this.destroy)
       )
       .subscribe();
+  }
+
+  public onChartTypeChange(chartType: keyof ChartTypeRegistry) {
+    this.chartType.set(chartType);
   }
 }

@@ -3,3 +3,5 @@ export const enum ChartType {
   Bar = 'bar',
   Scatter = 'scatter',
 }
+
+export const defaultChartType = ChartType.Line;
