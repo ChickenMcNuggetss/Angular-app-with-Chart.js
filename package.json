@@ -10,6 +10,7 @@
     "test": "ng test --browsers ChromeHeadless --watch=false",
     "lint": "eslint \"./src/**/*.{ts,html}\" ",
     "lint:fix": "eslint \"./src/**/*.{ts,html}\" --fix",
+    "deploy": "ng deploy",
     "prepare": "husky"
   },
   "private": true,
