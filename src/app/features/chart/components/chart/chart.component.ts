@@ -12,6 +12,9 @@ import { tap } from 'rxjs';
 import { ChartType } from '@features/chart/enums/chart-types';
 import { SourceComponent } from '../source/source.component';
 
+const BORDER_COLOR = 'rgba(75,192,192,1)';
+const BACKGROUND_COLOR = 'rgba(75,192,192,0.2)';
+
 @Component({
   selector: 'app-chart',
   standalone: true,
@@ -45,8 +48,8 @@ export class ChartComponent implements OnInit {
         {
           label: 'Population',
           data: this.population().map((item) => item.Population),
-          borderColor: 'rgba(75,192,192,1)',
-          backgroundColor: 'rgba(75,192,192,0.2)',
+          borderColor: BORDER_COLOR,
+          backgroundColor: BACKGROUND_COLOR,
           pointRadius: 5,
           pointHoverRadius: 8,
           fill: true,

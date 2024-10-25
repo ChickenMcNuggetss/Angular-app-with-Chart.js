@@ -8,8 +8,8 @@ import { Source } from '@features/chart/interfaces/source';
   imports: [NgTemplateOutlet],
   templateUrl: './source.component.html',
   styleUrl: './source.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SourceComponent {
-  public sourceItem = input.required<Source>({ alias: 'source'}); 
+  public sourceItem = input.required<Source>({ alias: 'source' });
 }

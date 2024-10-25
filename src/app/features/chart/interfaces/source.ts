@@ -1,8 +1,8 @@
-import { Annotations } from "./annotations"
+import { Annotation } from './annotation';
 
 export interface Source {
-  measures: string[]
-  annotations: Annotations
-  name: string
-  substitutions: unknown[]
+  measures: string[];
+  annotations: Annotation;
+  name: string;
+  substitutions: unknown[];
 }

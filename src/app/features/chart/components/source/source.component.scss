@@ -22,7 +22,8 @@ label {
   color: #555;
 }
 
-span, a {
+span,
+a {
   flex-grow: 1;
   color: #333;
 }
@@ -43,11 +44,14 @@ a:hover {
   list-style-type: none;
 }
 
-.measures, .annotations, .substitutions {
+.measures,
+.annotations,
+.substitutions {
   margin-top: 16px;
 }
 
-.annotations-title, .substitutions-title {
+.annotations-title,
+.substitutions-title {
   margin-bottom: 10px;
   font-size: 1.1em;
 }

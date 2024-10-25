@@ -10,7 +10,7 @@ export class ChartService {
 
   public population = computed(() => this._nationData()?.data.reverse() ?? []);
 
-  public source = computed(() => this._nationData()?.source ?? [])
+  public source = computed(() => this._nationData()?.source ?? []);
 
   public setPopulationData(nationData: ApiResponse<NationData>) {
     this._nationData.set(nationData);

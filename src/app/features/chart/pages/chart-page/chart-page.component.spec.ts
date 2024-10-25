@@ -8,9 +8,8 @@ describe('ChartPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChartPageComponent]
-    })
-    .compileComponents();
+      imports: [ChartPageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChartPageComponent);
     component = fixture.componentInstance;
