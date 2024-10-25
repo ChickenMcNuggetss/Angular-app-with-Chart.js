@@ -7,9 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "format": "prettier --write .",
-    "test": "ng test",
+    "test": "ng test --browsers ChromeHeadless --watch=false",
     "lint": "eslint \"./src/**/*.{ts,html}\" ",
-    "lint fix": "eslint \"./src/**/*.{ts,html}\" --fix"
+    "lint:fix": "eslint \"./src/**/*.{ts,html}\" --fix",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -56,6 +57,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^9.1.6",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

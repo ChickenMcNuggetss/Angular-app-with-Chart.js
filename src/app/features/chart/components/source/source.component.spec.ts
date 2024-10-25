@@ -6,6 +6,13 @@ describe('SourceComponent', () => {
   let component: SourceComponent;
   let fixture: ComponentFixture<SourceComponent>;
 
+  const mockSource = {
+    measures: [],
+    annotations: {},
+    name: '',
+    substitutions: [],
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SourceComponent],
@@ -13,6 +20,7 @@ describe('SourceComponent', () => {
 
     fixture = TestBed.createComponent(SourceComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('source', mockSource);
     fixture.detectChanges();
   });
 
