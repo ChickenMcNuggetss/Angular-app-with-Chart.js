@@ -113,6 +113,14 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/chart-app/browser",
+            "netlifyToken": "nfp_ti8zUNobdXbeSc5BLSwpQ6BYsRMBDbE15fa4",
+            "siteId": "916cf37a-6361-4c6c-b539-b59be38880d3"
+          }
         }
       }
     }
