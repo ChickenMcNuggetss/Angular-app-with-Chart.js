@@ -1,9 +1,26 @@
-<form>
-  <tui-select tuiTextfieldSize="s" [formControl]="chartType">
-    <input placeholder="Choose chart type" tuiTextfieldLegacy />
-    <tui-data-list-wrapper *tuiDataList [items]="chartTypes" />
-  </tui-select>
-</form>
-<div>
-  <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="chartTypeValue"> </canvas>
-</div>
+<tui-loader class="loader" size="m" [overlay]="true" [showLoader]="!population()">
+  <h2>Population Chart</h2>
+  <div class="flex-row">
+    <div>
+      <div class="chart-container">
+        <canvas
+          baseChart
+          [data]="lineChartData()"
+          [options]="lineChartOptions"
+          [type]="chartTypeValue"
+        ></canvas>
+      </div>
+    </div>
+    <form class="tui-space_left-6">
+      <tui-select tuiTextfieldSize="s" [formControl]="chartType" class="select">
+        <input placeholder="Choose chart type" tuiTextfieldLegacy />
+        <tui-data-list-wrapper *tuiDataList [items]="chartTypes" />
+      </tui-select>
+    </form>
+  </div>
+
+  @let sourceValue = source();
+  @for (sourceItem of sourceValue; track sourceItem.name) {
+    <app-source [source]="sourceItem"></app-source>
+  }
+</tui-loader>

@@ -3,6 +3,7 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
+  "plugins": ["unused-imports", "simple-import-sort", "prettier", "@typescript-eslint"],
   "overrides": [
     {
       "files": [

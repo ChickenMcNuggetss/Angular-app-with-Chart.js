@@ -1,0 +1,63 @@
+@let source = sourceItem();
+<div class="tui-space_vertical-6">
+  <h2 class="data-title">Data Name: {{ source.name }}</h2>
+  <div class="flex-container measures">
+    <div>Measures:</div>
+    <ul class="measure-list">
+      @for (measure of source.measures; track measure) {
+        <li>{{ measure }}</li>
+      }
+    </ul>
+  </div>
+  <div class="annotations">
+    <h3 class="annotations-title">Annotations</h3>
+    @let annotations = source.annotations;
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Source Name:', data: annotations.source_name }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Source Description:', data: annotations.source_description }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Dataset Name:', data: annotations.dataset_name }"
+    ></ng-container>
+    <div class="flex-container">
+      <div>Dataset Link:</div>
+      <a [href]="annotations.dataset_link" target="_blank">
+        {{ annotations.dataset_link }}
+      </a>
+    </div>
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Table ID:', data: annotations.table_id }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Topic:', data: annotations.topic }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="annotation"
+      [ngTemplateOutletContext]="{ title: 'Subtopic:', data: annotations.subtopic }"
+    ></ng-container>
+  </div>
+  <div class="substitutions">
+    <h3 class="substitutions-title">Substitutions</h3>
+    <ul class="substitution-list">
+      @for (substitution of source.substitutions; track substitution) {
+        <li>{{ substitution }}</li>
+      } @empty {
+        <span>No substitutions</span>
+      }
+    </ul>
+  </div>
+</div>
+
+<ng-template #annotation let-title="title" let-inner="data">
+  <div class="flex-container">
+    <div>{{ title }}</div>
+    <span>{{ inner }}</span>
+  </div>
+</ng-template>
