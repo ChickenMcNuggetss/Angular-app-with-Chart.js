@@ -1,27 +1,51 @@
-# ChartApp
+# Ангуляр приложение с графиком Chart.js
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+## Описание
 
-## Development server
+Проект представляет Angular-приложение, с интеграцией библиотеки Chart.js для визуализации данных о населении США по годам. Приложение загружает данные из открытого API и отображает их в виде интерактивного графика, который можно настроить по типу отображения. Данные для source получаются по запросу на API и отображаются под графиком.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Цель проекта
 
-## Code scaffolding
+Создать Angular-приложение, позволяющее визуализировать с помощью Chart.js данные о населении США по годам, получаемых из Data USA API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Используемые технологии
 
-## Build
+- Angular v18 — основа для построения структуры приложения.
+- Chart.js — библиотека для визуализации данных.
+- RxJS — библиотека для реактивного программирования.
+- Taiga UI — библиотека компонентов.
+- SCSS - CSS-препроцессор.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Функциональные возможности
 
-## Running unit tests
+- Отображение графика данных по полю Year с использованием последней версии Angular и библиотеки Chart.js.
+- Возможность выбора типа графика.
+- Возможность выделения точек на графике.
+- Отображение дополнительной информации об источнике данных.
+- Интерактивное взаимодействие с графиком.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Настройка и запуск
 
-## Running end-to-end tests
+1. Используйте node версии `20.x` или выше.
+2. Установите `Git` на ваш компьютер.
+3. Установите редактор кода на ваш выбор.
+4. Клонируйте этот репозиторий на ваш компьютер.
+5. Установите все зависимости с помощью `npm ci`.
+6. Запустите сервер для разработки: `npm start`.
+7. Откройте браузер и перейдите по адресу http://localhost:4200.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Доступные скрипты
 
-## Further help
+- **start**: Запускает Angular-приложение локально с помощью `ng serve` по адресу `http://localhost:4200/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **build**: Компилирует Angular-приложение с помощью `ng build`, создавая готовый к производству бандл в папке `dist`.
+
+- **watch**: Запускает `ng build --watch --configuration development` для сборки проекта в режиме разработки и отслеживания изменений.
+
+- **format**: Форматирует файлы проекта в папке `src` с помощью `prettier --write .`, чтобы обеспечить единый стиль кода.
+
+- **test**: Выполняет тесты с помощью `ng test --browsers ChromeHeadless --watch=false`, предоставляя подробный вывод результатов тестов.
+
+- **lint**: Проверяет форматирование файлов в папке `src` с помощью `eslint lint`.
+
+- **lint:fix**: Автоматически исправляет ошибки форматирования в файлах с помощью `eslint lint --fix`.

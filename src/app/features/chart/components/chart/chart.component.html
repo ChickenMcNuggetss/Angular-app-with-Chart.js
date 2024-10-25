@@ -1,0 +1,16 @@
+<tui-loader class="loader" size="m" [overlay]="true" [showLoader]="population().length === 0">
+  <h2>Population Chart</h2>
+  <div class="flex-row">
+    <div>
+      <div class="chart-container">
+        <canvas baseChart [data]="lineChartData()" [options]="lineChartOptions" [type]="chartType()"></canvas>
+      </div>
+    </div>
+    <app-chart-form (chartTypeChange)="onChartTypeChange($event)"></app-chart-form>
+  </div>
+
+  @let sourceValue = source();
+  @for (sourceItem of sourceValue; track sourceItem.name) {
+    <app-source [source]="sourceItem"></app-source>
+  }
+</tui-loader>
