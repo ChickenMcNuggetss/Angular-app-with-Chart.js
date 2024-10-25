@@ -12,9 +12,12 @@ describe('ChartComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ChartComponent],
-      providers: [{provide: ChartApiService, useValue: {getPopulationData: () => of({data: [], source: []})}}, provideCharts(withDefaultRegisterables())]
+      providers: [
+        { provide: ChartApiService, useValue: { getPopulationData: () => of({ data: [], source: [] }) } },
+        provideCharts(withDefaultRegisterables()),
+      ],
     }).compileComponents();
- 
+
     fixture = TestBed.createComponent(ChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

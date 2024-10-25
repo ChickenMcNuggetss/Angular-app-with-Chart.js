@@ -11,7 +11,7 @@ describe('SourceComponent', () => {
     annotations: {},
     name: '',
     substitutions: [],
-  }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
