@@ -1,3 +1,5 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.scss';
+
 .flex-row {
   display: flex;
   width: 100%;
@@ -5,11 +7,17 @@
   flex: 1;
 }
 
-.select {
-  width: 200px;
-}
-
 .chart-container {
   position: relative;
   width: 40vw;
+  min-height: 200px;
+
+  @media #{$tui-tablet} {
+    width: 80vw;
+  }
+
+  @media #{$tui-mobile} {
+    min-height: auto;
+    width: 95vw;
+  }
 }
